@@ -1,0 +1,63 @@
+agent-orchard
+Copyright 2026 The agent-orchard stewards and contributors
+
+This product includes software developed by the agent-orchard project
+(https://github.com/agentorchard/orchard).
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+
+================================================================================
+Scope of this NOTICE
+================================================================================
+
+The Apache License and this NOTICE cover only material authored by this project:
+scripts/, the CI workflow definitions under .github/, the Deno wrapper, and the
+PreToolUse egress hook.
+
+They do NOT cover:
+
+  * Registry data — marketplace.json, registry/**, and decision records — which
+    is dedicated to the public domain under CC0 1.0 Universal. No attribution is
+    required to reuse it. See LICENSE-DATA.
+
+  * Vendored plugins under plugins/<name>/, each of which remains under its
+    upstream author's licence, unchanged. Those licences are not ours to choose
+    and not ours to relicense. Each vendored plugin retains its upstream licence
+    file, and its upstream NOTICE file where one exists, alongside the mirrored
+    source. Where an upstream work is itself Apache-2.0 licensed, its NOTICE
+    obligations run to that work and are satisfied there, not here.
+
+Modified files carry a notice recording that this project changed them, as
+required by Apache License section 4(b). Where we transform a vendored plugin to
+run under declared permissions, that transformation is a modification and is
+marked as one.
+
+================================================================================
+Trademarks and affiliation
+================================================================================
+
+agent-orchard is an independent project. It is not affiliated with, endorsed by,
+or sponsored by Anthropic PBC or any upstream plugin author. All product names,
+logos, and trademarks referenced in this repository are the property of their
+respective owners, and are used only to identify the software being mirrored or
+the platform it runs on.
+
+================================================================================
+Third-party attributions
+================================================================================
+
+None at present.
+
+This project's own automation is built to carry no third-party runtime
+dependencies; see the security rules in CLAUDE.md. Any dependency added later
+must be recorded here with its copyright notice and licence, and pinned by full
+commit SHA rather than by tag.

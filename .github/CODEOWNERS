@@ -1,0 +1,92 @@
+# agent-orchard — code owners
+#
+# Purpose: keep the security controls under different, stricter ownership than
+# the plugin content those controls exist to police.
+#
+# The threat this addresses: a single pull request that adds a plugin *and*
+# weakens the scanner in the same commit — so the check that would have caught
+# the plugin never runs against it. Splitting ownership means the control paths
+# and the content paths are reviewed as separate concerns by separate rules.
+#
+# ------------------------------------------------------------------------------
+# READ THIS BEFORE RELYING ON THIS FILE
+# ------------------------------------------------------------------------------
+#
+# CODEOWNERS on its own enforces nothing. Three limits, stated plainly so nobody
+# assumes protection that is not actually in place:
+#
+# 1. It is inert without branch protection. The repository ruleset for the
+#    default branch must have "Require a pull request before merging" and
+#    "Require review from Code Owners" enabled. Without those, this file is
+#    advisory and merges proceed unblocked.
+#
+# 2. "Require review from Code Owners" means at least ONE owner per matching
+#    rule — not all of them. To require every steward, the ruleset's required
+#    approval count must be set to the number of stewards, listed individually
+#    below rather than behind a team handle (a team is satisfied by any single
+#    member). Both settings live in repository configuration, not in this file,
+#    and neither is verifiable from the repository contents.
+#
+# 3. It cannot stop one PR from touching both a control path and a plugin path.
+#    It requires both sets of owners to approve; it does not force the change
+#    into two pull requests. Closing that gap needs a CI check that fails any
+#    PR whose diff touches plugins/** together with scripts/** or .github/**.
+#    That check is NOT yet implemented. Until it is, the separation below is
+#    partial, and reviewers must enforce the split by reading the diff.
+#
+# UNRESOLVED HANDLES FAIL SILENTLY. GitHub ignores CODEOWNERS rules naming a
+# user or team that does not exist, or that lacks write access to this
+# repository. The rule stays in the file and looks like protection while
+# enforcing nothing. Every handle below must be confirmed to resolve — check the
+# repository's CODEOWNERS view for errors after the org and its teams exist.
+#
+# ------------------------------------------------------------------------------
+# TODO before the first plugin is merged
+# ------------------------------------------------------------------------------
+# The @agentorchard org and its teams do not exist at scaffold time, so the
+# handles below are placeholders and currently enforce NOTHING. Replace
+# @agentorchard/stewards on the control paths with the explicit list of
+# individual steward handles, confirm every handle resolves, and enable the
+# branch protection settings described above.
+# ------------------------------------------------------------------------------
+
+# Default owner for anything not matched by a more specific rule below.
+# Later rules take precedence over earlier ones.
+*                       @agentorchard/stewards
+
+# ------------------------------------------------------------------------------
+# Tier 1 — security controls. All stewards.
+# ------------------------------------------------------------------------------
+# These paths are the defence itself. A change here can silently disable the
+# checks protecting every plugin in the marketplace, so they carry the strictest
+# ownership in the repository and are never co-reviewed with plugin content.
+
+# Scanners, transforms, the Deno wrapper, the egress hook, release tooling.
+/scripts/               @agentorchard/stewards
+
+# CI definitions, workflow permissions, this file. Anything under .github/ can
+# alter or remove the checks in scripts/ without touching scripts/ at all —
+# including this file, which is why it must own itself.
+/.github/               @agentorchard/stewards
+
+# Governance and licensing. Changing the working rules, the licence, or the
+# attribution notices changes what the project promises users and what it owes
+# authors. Same bar as the code that enforces it.
+/CLAUDE.md              @agentorchard/stewards
+/LICENSE                @agentorchard/stewards
+/LICENSE-DATA           @agentorchard/stewards
+/NOTICE                 @agentorchard/stewards
+/docs/licensing.md      @agentorchard/stewards
+
+# ------------------------------------------------------------------------------
+# Tier 2 — mirrored content and registry data.
+# ------------------------------------------------------------------------------
+# Reviewed as plugin admissions, against the controls in Tier 1 — never in the
+# same pull request as a change to those controls.
+#
+# These paths do not exist yet; the rules are declared ahead of the directories
+# so that the first plugin PR cannot land before its ownership rule does.
+
+/plugins/               @agentorchard/stewards
+/registry/              @agentorchard/stewards
+/marketplace.json       @agentorchard/stewards
