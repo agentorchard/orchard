@@ -1,5 +1,10 @@
 # Psychology of Intelligence Analysis
 
+Source text for an audiobook. `CLAUDE.md` in this directory states the goal, the
+rules for the extracted text, and the verification an unverified chapter needs
+before it is committed. `audiobook-chapters.md` maps the book's parts and
+chapters onto the audiobook's flat chapter list.
+
 Markdown extracted from Richards J. Heuer, Jr., *Psychology of Intelligence
 Analysis* (Washington, DC: Center for the Study of Intelligence, Central
 Intelligence Agency, 1999).

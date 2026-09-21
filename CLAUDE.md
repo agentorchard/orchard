@@ -33,3 +33,11 @@ Three roles and three rules. They outrank convenience, speed, and how we look.
 ---
 
 **These are one rule, not three.** Honesty and transparency serve the same people security does: the users. Concealing a flaw to protect stewards attacks the people this project exists to protect.
+
+---
+
+## Other work in this repository
+
+`docs/psychology-of-intelligence-analysis/` holds source text for an audiobook,
+extracted from a public-domain PDF. It has its own `CLAUDE.md` with the rules
+for that work. The rules above still apply to the code under `tools/`.
