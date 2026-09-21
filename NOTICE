@@ -55,7 +55,16 @@ the platform it runs on.
 Third-party attributions
 ================================================================================
 
-None at present.
+Reproduced content, not software:
+
+  * docs/psychology-of-intelligence-analysis/ — text and figures extracted from
+    Richards J. Heuer, Jr., Psychology of Intelligence Analysis (Center for the
+    Study of Intelligence, Central Intelligence Agency, 1999). A work of the US
+    Government, in the public domain in the United States. Neither Apache-2.0
+    nor CC0 applies to it; it is reproduced with attribution to its author and
+    publisher. The extractor under tools/ is ours and is Apache-2.0.
+
+No third-party code is vendored or depended upon.
 
 This project's own automation is built to carry no third-party runtime
 dependencies; see the security rules in CLAUDE.md. Any dependency added later

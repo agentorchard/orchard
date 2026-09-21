@@ -1,0 +1,4 @@
+# Cached source material, fetched on demand by tools/heuer_extract.py
+.cache/
+__pycache__/
+*.pyc
